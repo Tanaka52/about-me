@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap');
+
+html {
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.container {
+    width: 90%;
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center; /* 修正: アイテムを垂直方向に中央揃え */
+}
+
+/* ヘッダー */
+header {
+    padding: 20px 0;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+}
+
+.header-menu {
+    list-style-type: none; /* リストの丸を消す */
+    margin: 0; /* リストの余白をリセット */
+    padding: 0; /* リストのパディングをリセット */
+    display: flex; /* 追加: Flexboxを使用 */
+    align-items: center; /* 追加: アイテムを垂直方向に中央揃え */
+}
+
+.header-menu li {
+    display: inline-block; /* リストアイテムを横並びにする */
+    margin-left: 40px;
+}
+
+.header-menu li a {
+    transition: color .3s;
+}
+
+.page-title {
+    color: rgb(65, 83, 180);
+    text-align: center; /* テキストを中央揃え */
+    margin-top: 20px; /* 上の余白を追加 */
+    margin-bottom: 20px; /* 下の余白を追加 */
+    line-height: 1; /* 追加: 行の高さを1に設定して中央揃え */
+}
+
