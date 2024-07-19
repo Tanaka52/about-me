@@ -4,6 +4,13 @@ html {
     font-family: 'Noto Sans JP', sans-serif;
 }
 
+body {
+    background-image: url('about-me/images/tori.jpg'); /* 背景画像のURLを指定 */
+    background-size: cover; /* 画像を全体にフィットさせる */
+    background-position: center; /* 画像を中央に配置 */
+    background-repeat: no-repeat; /* 画像を繰り返さない */
+}
+
 .container {
     width: 90%;
     max-width: 1120px;
@@ -14,7 +21,7 @@ html {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    align-items: center; /* 修正: アイテムを垂直方向に中央揃え */
+    align-items: center; /* アイテムを垂直方向に中央揃え */
 }
 
 /* ヘッダー */
@@ -32,8 +39,8 @@ header {
     list-style-type: none; /* リストの丸を消す */
     margin: 0; /* リストの余白をリセット */
     padding: 0; /* リストのパディングをリセット */
-    display: flex; /* 追加: Flexboxを使用 */
-    align-items: center; /* 追加: アイテムを垂直方向に中央揃え */
+    display: flex; /* Flexboxを使用 */
+    align-items: center; /* アイテムを垂直方向に中央揃え */
 }
 
 .header-menu li {
@@ -45,11 +52,37 @@ header {
     transition: color .3s;
 }
 
+.header-menu li a:hover {
+    color: chocolate;
+}
+
 .page-title {
     color: rgb(65, 83, 180);
     text-align: center; /* テキストを中央揃え */
     margin-top: 20px; /* 上の余白を追加 */
     margin-bottom: 20px; /* 下の余白を追加 */
-    line-height: 1; /* 追加: 行の高さを1に設定して中央揃え */
+    line-height: 1; /* 行の高さを1に設定して中央揃え */
+}
+.haikei.image {
+    background-blend-mode: lighten;
+    background-position: center;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.haikei-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 画像のアスペクト比を維持しつつ、全体をカバー */
+    z-index: -1; /* 画像を背景として配置 */
+
+        background-blend-mode: lighten;
+        background-position: center;
 }
 
