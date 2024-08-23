@@ -4,44 +4,173 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
     <title>About Me</title>
+
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <style>
-        /*上下の太枠を作成*/
-        .top-border, .bottom-border {
-            border: 5px solid rgb(0, 3, 44); /* 太さと色を指定 */
+        /*　全体の背景画像　*/
+        body {
+            background-image: url('images/sunset-8569636_1280.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             margin: 0;
             padding: 0;
+            font-family: Arial, sans-serif;
+            position: relative; /* 擬似要素の位置を設定するためにrelativeを追加 */
+        }
+
+
+         /* 上と下の空欄 */
+         .top-space  {
+            width: 100%;
+            position: fixed;
+            left: 0;
+            background-color: rgba(0, 0, 0, 1); /* ここで色を指定 */
+            z-index: 1;
+        }
+        .top-space {
+            height: 76px; /* 必要に応じて高さを変更 */
+            top: 0;
+        }
+        .bottom-space {
+            width: 100%;
+            position: fixed;
+            left:0;
+            background-color: #000000;
+            z-index: 1;
+        }
+        .bottom-space {
+            height: 49px; /* 必要に応じて高さを変更 */
+            bottom: 0;
+        }
+
+
+        /* ドローワーメニューのスタイル */
+        .drawer {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 250px;
+            height: 100%;
+            background-color: #594746;
+            color: rgb(255, 255, 255);
+            transition: right 0.3s ease;
+            padding: 20px;
+            box-sizing: border-box;
+            z-index: 1000;  /*追加したやつ*/
+        }
+        .drawer.open {
+            right: 0;
+        }
+        .drawer .close-btn {
+            cursor: pointer;
+            font-size: 1.5em;
+            position:absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .drawer ul {
+            list-style: none;
+            padding: 0;
+            margin: 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .drawer ul li {
+            margin: 10px 0;
+            line-height: 20px;
+        }
+        .drawer ul li a {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            display: block;
+        }
+        .menu-btn {
+            cursor: pointer;
+            font-size: 2em;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .menu-btn.hidden {
+            display: none;/*ドローワーメニューが開いたとき*/
+        }
+        /*リンクを中央に配置する*/
+        .header-menu {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 0;
+            list-style: none;
+        }
+        /* 写真のスタイル */
+        .image-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 120px 0 70px;
+            position: relative;
+            z-index: 2;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        /* タイトル*/
+        .page-title {
+            position:relative;
+            z-index: 2;
+            text-align: center;
+            padding:30px;
+            color: rgb(255, 255, 255);
         }
     </style>
 </head>
 
-<body>
-    <div class="top-border"></div><!-- 上の太枠 -->
-    <h1 class="page-title">About me</menu></h1>
-    <header>
-        <div class="container flex">
-            <a href="" class="logo">
-            </a>
-            <nav>
-                <ul class="header-menu">
-                    <li><a href="about.html">自己紹介</a></li>
-                    <li><a href="like.html">趣味</a></li>
-                    <li><a href="animalu.html">好きなこと</a></li>
-                    <li><a href="contact.html">お問い合わせ</a></li>
-                </ul>
-            </nav>
-        </div>
 
-    </header>
-    <div class="bottom-border"></div><!-- 下の太枠　-->
-        <!--画像-->
-        <script src="js/main.js"></script> 
-        <img class="" src="" alt="">                 
-   
+<body>
+    <h1 class="page-title">About me</h1>
+    <div class="top-space"></div>
+    <div class="menu-btn" onclick="toggleDrawer()">☰</div>
+    <div class="drawer" id="drawer">
+        <div class="close-btn" onclick="toggleDrawer()">×</div>
+        <div class="About-me"></div>
+        <ul>
+            <li><a href="index.html">About me</a></li>
+            <li><a href="about.html">自己紹介</a></li>
+            <li><a href="like.html">hoddy</a></li>
+            <li><a href="animalu.html">like</a></li>
+            <li><a href="contact.html">contact</a></li>
+        </ul>
+    </div>
+    <div class="bottom-space"></div>
+
+
+    <script>
+        function toggleDrawer() {
+            const drawer = document.getElementById('drawer');
+            drawer.classList.toggle('open');
+            sessionStorage.setItem('drawerState', drawer.classList.contains('open') ? 'open' : 'closed');
+        }
+
+
+        // ページロード時にドローワーメニューの状態を復元
+        window.addEventListener('DOMContentLoaded', () => {
+            const drawer = document.getElementById('drawer');
+            const drawerState = sessionStorage.getItem('drawerState');
+            if (drawerState === 'open') {
+                drawer.classList.add('open');
+            }
+        });
+    </script>
 </body>
 </html>
-

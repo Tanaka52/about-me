@@ -3,7 +3,7 @@
 
 # About Me 
 
-サイトURL: https://wangchangdog.github.io/about-me/
+サイトURL: https://Tanaka52.github.io/about-me/
 
 (例)
 このサイトは私の自己紹介のために制作しました。

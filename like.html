@@ -1,5 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <style>
+           body {
+            background-image: url('images/');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            position: relative;
+        }
+
+        /*上下の太枠を作成*/
+        .top-border, .bottom-border {
+            border: 29px solid rgb(196, 172, 172);
+            margin: 0;
+            padding: 0;
+        }
+
+        /*ドローワーメニューのスタイル */
+        .drawer {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 250px;
+            height: 100%;
+            background-color: #594746;
+            color: rgb(255, 255, 255);
+            transition: right 0.3s ease;
+            padding: 40px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .drawer.open {
+            right: 0;
+        }
+        .drawer .close-btn {
+            cursor: pointer;
+            font-size: 1.5em;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .drawer ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 60px;
+        }
+        .drawer ul li {
+            margin: 10px 0;
+            line-height: 1.9;
+        }
+        .drawer ul li a {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            display: block;
+        }
+        .menu-btn {
+            cursor: pointer;
+            font-size:2em;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .menu-btn.hidden {
+            display: none;
+        }
+
+        /*画像の角を丸くするスタイル*/
+        .rounded-corners {
+            border-radius: 15px;
+        }
+
+        /*画像とテキストを横に並べるためのスタイル*/
+        .image-text-container {
+            display: flex;
+            align-items: center;
+            gap: 20px; /* 画像とテキストの間のスペース */
+            margin-top: 20px;
+            justify-content: flex-start; /* 左寄せ */
+        }
+
+        .image-margin-left {
+            margin-left: 200px;
+        }
+
+        .image-text-container img {
+            border-radius: 15px;
+            width: 190px;
+        }
+
+        .image-text-container p {
+            margin: 0;
+        }
+       
+        /* 画像のマージンを調整できるようにするスタイル */
+        .image-margin-right {
+            margin-right: 50px;
+        }
+
+        /*文章を左から離して表示するためのスタイル*/
+        .text-left-margin {
+            margin-left: 50px;
+        }
+    </style>
+</head>
+
 <body>
-    <h2>趣味</h2>
-    <p>ゲーム、旅行</p>
-    <img class="" src=""
+    <!-- メニューアイコン -->
+    <div class="menu-btn" id="menuBtn" onclick="toggleDrawer()">☰</div>
+    <!-- ドロワーメニュー -->
+    <div class="drawer" id="drawer">
+        <div class="close-btn" onclick="toggleDrawer()">×</div>
+        <ul>
+            <li><a href="index.html">About me</a></li>
+            <li><a href="about.html">自己紹介</a></li>
+            <li><a href="like.html">hoddy</a></li>
+            <li><a href="animalu.html">like</a></li>
+            <li><a href="contact.html">contact</a></li>
+        </ul>
+    </div>
+
+    <div class="bottom-border"></div><!-- 下の太枠　-->
+
+    <!--文章-->
+    <div class="text-left-margin">
+        <h2>趣味</h2>
+        <p>ゲーム<br>
+        旅行</p>
+    </div>
+
+    <!--画像-->
+    <div class="image-text-container">
+        <img src="images/Image1.jpg" class="rounded-corners" width="190" height="">
+        <p></p>
+    </div>
+    <div class="image-text-container">
+        <img src="images/Image2.jpg" class="rounded-corners" width="" height="">
+        <p>・岐阜城・<br>
+            建仁年間（1201年~1204年）に鎌倉幕府執事二階堂行政により<br>
+            始めて砦が築かれたといわれている。<br>
+            岩山の上にそびえる岐阜城は難攻不落の城としても知られていました。<br>
+            戦国時代には斎藤道三の居城としられています。
+        </p>
+    </div>
+
+    <script>
+        function toggleDrawer() {
+            const drawer = document.getElementById('drawer');
+            const menuBtn = document.getElementById('menuBtn');
+            drawer.classList.toggle('open');
+            if (drawer.classList.contains('open')) {
+                menuBtn.classList.add('hidden');
+            } else {
+                menuBtn.classList.remove('hidden');
+            }
+            sessionStorage.setItem('drawerState', drawer.classList.contains('open') ? 'open' : 'closed');
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const drawer = document.getElementById('drawer');
+            const menuBtn = document.getElementById('menuBtn');
+            const drawerState = sessionStorage.getItem('drawerState');
+            if (drawerState === 'open') {
+                drawer.classList.add('open');
+                menuBtn.classList.add('hidden');
+            }
+        });
+    </script>
 </body>
+</html>

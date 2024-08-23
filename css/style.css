@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap');
 
+
 html {
     font-family: 'Noto Sans JP', sans-serif;
 }
+
 
 body {
     background-image: url('about-me/images/tori.jpg'); /* 背景画像のURLを指定 */
@@ -11,11 +13,17 @@ body {
     background-repeat: no-repeat; /* 画像を繰り返さない */
 }
 
+
+
+
+
+
 .container {
     width: 90%;
     max-width: 1120px;
     margin: 0 auto;
 }
+
 
 .flex {
     display: flex;
@@ -24,16 +32,19 @@ body {
     align-items: center; /* アイテムを垂直方向に中央揃え */
 }
 
+
 /* ヘッダー */
 header {
     padding: 20px 0;
 }
+
 
 .logo {
     font-size: 24px;
     font-weight: 700;
     letter-spacing: -0.04em;
 }
+
 
 .header-menu {
     list-style-type: none; /* リストの丸を消す */
@@ -43,21 +54,25 @@ header {
     align-items: center; /* アイテムを垂直方向に中央揃え */
 }
 
+
 .header-menu li {
     display: inline-block; /* リストアイテムを横並びにする */
     margin-left: 40px;
 }
 
+
 .header-menu li a {
     transition: color .3s;
 }
 
+
 .header-menu li a:hover {
-    color: chocolate;
+    color: rgb(154, 161, 214);
 }
 
+
 .page-title {
-    color: rgb(65, 83, 180);
+    color: rgb(230, 233, 240);
     text-align: center; /* テキストを中央揃え */
     margin-top: 20px; /* 上の余白を追加 */
     margin-bottom: 20px; /* 下の余白を追加 */
@@ -73,6 +88,7 @@ html, body {
     height: 100%;
 }
 
+
 .haikei-image {
     position: absolute;
     top: 0;
@@ -82,7 +98,67 @@ html, body {
     object-fit: cover; /* 画像のアスペクト比を維持しつつ、全体をカバー */
     z-index: -1; /* 画像を背景として配置 */
 
+
         background-blend-mode: lighten;
         background-position: center;
 }
+.menu-btn.hidden {
+    display: none; /* ドロワーメニューが開いたときにメニューアイコンを隠す */
+}
 
+
+.drawer {
+    z-index: 1000; /* ドロワーメニューを前面に表示 */
+}
+.menu-btn {
+    z-index: 1100; /* メニューボタンをドロワーメニューより前面に表示 */
+}
+.contact-form {
+    z-index: 900; /* お問い合わせフォームをドロワーメニューの下に表示 */
+}
+.menu-btn {
+    cursor: pointer;
+    font-size: 2em;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    color: rgb(255, 255, 255); /* メニューボタンの色を青に変更 */
+}
+/* メニューボタンとドローワーメニューを水平にする*/
+.container {
+    display: flex;
+    align-items: center;
+}
+.page-title {
+    flex: 1;
+    margin: 0;
+    padding: 30px;
+}
+.menu-btn {
+    cursor: pointer;
+    padding: 0px;
+}
+/*画像とテキストを横に並べるためのスタイル*/
+.image-text-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-top: 20px;
+}
+
+
+.image-margin-left {
+    margin-left: 1; /* これを小さくして、例えば200pxに */
+}
+
+
+.image-text-container img {
+    border-radius: 15px;
+    width: 190px;
+}
+
+
+.image-text-container p {
+    margin: 0;
+}
