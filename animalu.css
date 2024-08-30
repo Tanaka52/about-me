@@ -1,0 +1,10 @@
+.main-visual {
+    display: grid;
+    place-items: center; /* 中央に配置 */
+    height: 50vh; /* ビジュアル全体の高さを100vhに設定 */
+}
+
+.main-visual img {
+    max-width: 100%;
+    height: auto;
+}

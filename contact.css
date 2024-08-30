@@ -1,22 +1,36 @@
 /* お問い合わせフォームのスタイル */
 .contact-form {
     max-width: 380px; /* フォームの幅を小さくする */
-    margin: 40px auto 80px; /* フォームの下にスペースを追加 */
+    margin: 0 auto; /* 左右中央に配置 */
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center; /* フォーム内の要素を中央に配置 */
-    position: relative;
+    position: fixed; /* フォームを固定 */
+    top: 50%; /* フォームの上端を画面の垂直中央に固定 */
+    left: 50%; /* フォームの左端を画面の水平中央に固定 */
+    transform: translate(-50%, -50%); /* 完全に中央に配置 */
     z-index: 900; /* お問い合わせフォームをドロワーメニューの下に表示 */
-
 }
 
-/* フッター */
+.contact-form {
+    max-width: 380px;
+    margin: 40px auto 100px auto; /* フォームの下に100pxのマージンを追加 */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    z-index: 900;
+}
 .footer {
     background-color: #333333;
     color: #fff;
-    padding: 1.5%;
+    padding: 20px;
     text-align: center;
-    margin-top: 100px; /* フッターの上にスペースを追加 */
+    margin-top: 40px; /* フッターの上に40pxのマージンを追加 */
 }
+
+

@@ -22,7 +22,6 @@
             overflow: hidden; /* スクロールを無効にする */
         }
 
-
         /* ナビゲーションバー */
         .navbar {
             background-color: #282a35;
@@ -59,7 +58,6 @@
         .navbar ul li a:hover {
             text-decoration: underline;
         }
-
 
         /* ドローワーメニューのスタイル（スマホ用） */
         .drawer {
@@ -104,7 +102,6 @@
             display: block;
         }
 
-
         /* メニューボタンのスタイル（スマホ用） */
         .menu-btn {
             cursor: pointer;
@@ -117,7 +114,6 @@
             padding: 10px;
             border-radius: 5px;
         }
-
 
         /* メインビジュアル */
         .main-visual {
@@ -142,13 +138,11 @@
             z-index: -1;
         }
 
-
         /* 画像のズーム設定 */
         .main-visual .image-container {
             background-size: 0%; /* デフォルトで少しズーム */
             transition: transform 0.5s ease-in-out;
         }
-
 
         @media screen and (max-width: 768px) {
             /* スマホ用のズームイン効果 */
@@ -157,14 +151,12 @@
             }
         }
 
-
         @media screen and (min-width: 769px) {
             /* ウェブサイト用のズームアウト効果 */
             .main-visual .image-container:hover {
                 transform: scale(1); /* 元のサイズにズームアウト */
             }
         }
-
 
         /* スライドショーのスタイル */
         .slide-show {
@@ -174,7 +166,6 @@
             top: 0;
             left: 0;
         }
-
 
         .slide {
             position: absolute;
@@ -186,11 +177,9 @@
             transition: opacity 1s ease-in-out;
         }
 
-
         .slide.show {
             opacity: 1;
         }
-
 
         /* コンテンツセクション */
         .content {
@@ -206,7 +195,6 @@
             margin-bottom: 40px;
         }
 
-
         /* フッター */
         .footer {
             background-color: #333333;
@@ -214,7 +202,6 @@
             padding: 2%;
             text-align: center;
         }
-
 
         /* 画像コンテナのスタイル */
         .image-container {
@@ -237,7 +224,6 @@
             }
         }
 
-
         @media screen and (min-width: 769px) {
             /* ウェブサイト用スタイル */
             .drawer, .menu-btn {
@@ -249,7 +235,6 @@
         }
     </style>
 </head>
-
 
 <body>
     <!-- ナビゲーションバー -->
@@ -265,10 +250,8 @@
         </ul>
     </div>
 
-
     <!-- メニューボタン -->
     <div class="menu-btn" onclick="toggleDrawer()">☰</div>
-
 
     <!-- ドローワーメニュー（スマホ用） -->
     <div class="drawer" id="drawer">
@@ -282,23 +265,21 @@
         </ul>
     </div>
 
-
     <!-- メインビジュアル -->
     <div class="main-visual">
         <div class="slide-show">
-            <div class="slide fade" style="background-image: url('images/haikei.jpg');"></div>
+            <div class="slide show" style="background-image: url('images/hana2.jpg');"></div>
+            <div class="slide" style="background-image: url('images/hana.jpg');"></div>
         </div>
         <div>
             <h2></h2>
         </div>
     </div>
 
-
     <!-- フッター -->
     <footer class="footer">
         <p>&copy; 2024 期末課題.</p>
     </footer>
-
 
     <script>
         // ドローワーメニューの開閉
@@ -306,7 +287,6 @@
             const drawer = document.getElementById('drawer');
             drawer.classList.toggle('open');
         }
-
 
         // スライドショーのJavaScript
         let slideIndex = 0;
@@ -321,10 +301,8 @@
             slideIndex = (slideIndex + 1) % slides.length;
         }
 
-
-        // 3秒ごとにスライドを切り替える
+        // 4秒ごとにスライドを切り替える
         setInterval(showSlides, 4000);
-
 
         // ページ読み込み時に最初のスライドを表示
         window.addEventListener('DOMContentLoaded', showSlides);

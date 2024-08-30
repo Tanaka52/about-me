@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
     <style>
         /* 全体のスタイル */
         body {
@@ -236,15 +237,12 @@
             <li><a href="contact.html">お問い合わせ</a></li>
         </ul>
     </div>
-
-
     <!-- メインビジュアル -->
     <div class="main-visual">
-        <div class="image-container" id="imageContainer"></div>
+        <div class="image-container"></div>
         <div>
-            <h2></h2>
+            <img src="images/biwako2.jpg">
         </div>
-       
     </div>
    
 <!-- コンテンツセクション -->
@@ -315,39 +313,16 @@
         <div class="spacer"></div> <!-- 空白を追加 -->
     </body>
 
-
+    
 
 <!-- フッター -->
 <div class="footer">
     <!-- フッターの内容をここに追加 -->
 </div>
 
-   
-
-
-    <!-- フッター -->
-    <div class="footer">
-    </div>
-
 
     <script>
-        // メインビジュアルのスライドショー機能
-        const images = [
-            'images/biwako2.jpg',
-            'images/tori-.jpg' // 必要に応じて画像を追加
-        ];
-        let currentIndex = 0;
 
-//ここへん//
-        function changeImage() {
-            const imageContainer = document.getElementById('imageContainer');
-            imageContainer.classList.remove('active'); // 現在の画像をフェードアウト
-            setTimeout(() => {
-                imageContainer.style.backgroundImage = `url('${images[currentIndex]}')`;
-                imageContainer.classList.add('active'); // 新しい画像をフェードイン
-                currentIndex = (currentIndex + 1) % images.length;
-            }, 1000); // トランジションの時間と一致させる
-        }
 
 
         function toggleDrawer() {
