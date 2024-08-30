@@ -16,13 +16,12 @@
             background-color: #f4f4f4;
             overflow-x: hidden; /* 横スクロールを防ぐ */
         }
- 
         /* ナビゲーションバー */
         .navbar {
             background-color: #282a35;
             color: #fff;
             display: flex;
-            justify-content: center; /* 中央に配置 */
+            justify-content: center;
             align-items: center;
             padding: 28px 20px;
             position: fixed;
@@ -30,43 +29,39 @@
             top: 0;
             z-index: 1000;
         }
- 
         .navbar h1 {
             margin: 0;
             font-size: 1.5em;
+            flex-grow: 1;
             text-align: center;
         }
- 
         .navbar ul {
             list-style: none;
             margin: 0;
             padding: 0;
             display: flex;
-            margin-right: 100px;
         }
- 
         .navbar ul li {
             margin: 0 10px;
         }
- 
         .navbar ul li a {
             color: #ffffff;
             text-decoration: none;
             font-size: 1em;
         }
- 
         .navbar ul li a:hover {
             text-decoration: underline;
         }
- 
-        /* ドローワーメニューのスタイル（スマホ用） */
-        .drawer {
+
+
+         /* ドローワーメニューのスタイル（スマホ用） */
+         .drawer {
             position: fixed;
             top: 0;
             right: -300px;
             width: 250px;
             height: 100%;
-            background-color: rgba(83, 79, 102, 0.8);
+            background-color: rgba(83, 79, 102, 0.8); /* 背景を半透明に設定 */
             color: rgb(255, 255, 255);
             transition: right 0.3s ease;
             padding: 20px;
@@ -74,11 +69,9 @@
             z-index: 1000;
             overflow-y: auto;
         }
- 
         .drawer.open {
             right: 0;
         }
- 
         .drawer .close-btn {
             cursor: pointer;
             font-size: 1.5em;
@@ -86,7 +79,6 @@
             top: 20px;
             right: 20px;
         }
- 
         .drawer ul {
             list-style: none;
             padding: 0;
@@ -95,18 +87,17 @@
             flex-direction: column;
             align-items: center;
         }
- 
         .drawer ul li {
             margin: 10px 0;
             line-height: 20px;
         }
- 
         .drawer ul li a {
             color: rgb(255, 255, 255);
             text-decoration: none;
             display: block;
         }
- 
+
+
         /* メニューボタンのスタイル（スマホ用） */
         .menu-btn {
             cursor: pointer;
@@ -119,7 +110,8 @@
             padding: 10px;
             border-radius: 5px;
         }
- 
+
+
         /* メインビジュアル */
         .main-visual {
             height: 400px;
@@ -132,7 +124,6 @@
             margin-top: 60px; /* ナビゲーションバーの高さを考慮 */
             overflow: hidden; /* コンテンツのはみ出しを防ぐ */
         }
- 
         .main-visual .image-container {
             position: absolute;
             top: 0;
@@ -143,34 +134,32 @@
             background-position: center;
             z-index: -1; /* コンテンツより後ろに配置 */
             opacity: 0;
-            transition: opacity 1s ease-in-out;
+            transition: opacity 1s ease-in-out; /* フェードイン・フェードアウトのトランジション */
         }
- 
         .main-visual .image-container.active {
             opacity: 1;
         }
- 
         .main-visual h2 {
             font-size: 2.5em;
             margin: 0;
         }
- 
+
+
         /* コンテンツセクション */
         .content {
             padding: 20px;
             max-width: 1200px;
             margin: auto;
         }
- 
         .content h2 {
             font-size: 2em;
             margin-bottom: 20px;
         }
- 
         .content .exhibition, .content .contact {
             margin-bottom: 40px;
         }
- 
+
+
         /* フッター */
         .footer {
             background-color: #333333;
@@ -178,45 +167,50 @@
             padding: 1%;
             text-align: center;
         }
- 
+
+
         /* 画像コンテナのスタイル */
-        .photo-container {
-            display: flex;
-            gap: 20px; /* 画像間のスペース */
+        .image-container {
+            text-align: center;
+            margin: 20px 0;
         }
- 
-        .photo-container img {
-            border-radius: 15px;
-            border: 2px solid #ffffff;
+        .image-container img {
+            max-width: 100%;
+            height: auto;
         }
- 
+
+
         /* メディアクエリ */
         @media screen and (max-width: 768px) {
+            /* スマホ用スタイル */
             .navbar ul {
-                display: none;
+                display: none; /* ナビゲーションバー内のリンクを非表示にする */
             }
- 
             .menu-btn {
-                display: block;
+                display: block; /* メニューボタンを表示する */
             }
         }
- 
+
+
         @media screen and (min-width: 769px) {
+            /* ウェブサイト用スタイル */
             .drawer, .menu-btn {
-                display: none;
+                display: none; /* ドローワーメニューとメニューボタンを非表示にする */
             }
- 
             .navbar ul {
-                display: flex;
+                display: flex; /* ナビゲーションバー内のリンクを表示する */
             }
         }
     </style>
 </head>
+
+
 <body>
     <!-- ナビゲーションバー -->
     <div class="navbar">
+        <ul class="height"></ul>
         <h1>About me</h1>
-        <ul>
+        <ul class="right">
             <li><a href="index.html">home</a></li>
             <li><a href="about.html">自己紹介</a></li>
             <li><a href="like.html">刀剣</a></li>
@@ -224,64 +218,118 @@
             <li><a href="contact.html">お問い合わせ</a></li>
         </ul>
     </div>
- 
+   
+
+
     <!-- メニューボタン -->
     <div class="menu-btn" onclick="toggleDrawer()">☰</div>
- 
+
+
     <!-- ドローワーメニュー（スマホ用） -->
     <div class="drawer" id="drawer">
         <div class="close-btn" onclick="toggleDrawer()">×</div>
         <ul>
-            <li><a href="index.html">home</a></li>
+            <li><a href="index.html">About me</a></li>
             <li><a href="about.html">自己紹介</a></li>
             <li><a href="like.html">刀剣</a></li>
             <li><a href="animalu.html">工芸品</a></li>
             <li><a href="contact.html">お問い合わせ</a></li>
         </ul>
     </div>
- 
+
+
     <!-- メインビジュアル -->
     <div class="main-visual">
-        <div class="image-container active" id="imageContainer"></div>
+        <div class="image-container" id="imageContainer"></div>
         <div>
-            <h2>刀剣と工芸品</h2>
+            <h2></h2>
         </div>
+       
     </div>
- 
-    <!-- コンテンツセクション -->
-    <div class="content">
-        <!-- 工芸品 -->
-        <div>
-            <h2>-刀剣-</h2>
-            <h3>太刀・銘恒次</h3>
-            <p>数珠丸<br>
-                平安末期から鎌倉前期に青江恒次により作られたとされる。<br>
-                日本の重要文化財に指定されており<br>
-                兵庫県尼崎市にある本興寺に所蔵されている。<br>
-                天下五剣の一振り<br>
-                <br>
-            </p>
-            <div class="photo-container">
-                <img src="images/katana.jpg" alt="太刀・銘恒次">
-                <img src="images/haikei3.jpg" alt="背景">
-            </div>
+   
+<!-- コンテンツセクション -->
+<div class="content">
+    <!-- 工芸品 -->
+    <div>
+        <h2>-刀剣-</h2>
+        <h3>太刀・銘恒次</h3>
+        <p>数珠丸<br>
+            平安末期から鎌倉前期に青江恒次により作られたとされる。<br>
+            日本の重要文化財に指定されており<br>
+            兵庫県尼崎市にある本興寺に所蔵されている。<br>
+            天下五剣の一振り<br>
             <br>
-            <h3>太刀・銘三条</h3>
-            <p>三日月宗近<br>
-                平安時代に三条宗近作られたとされる。<br>
-                天下五剣の一振りであり、その中でも最も美しいといわれている。<br>
-                東京国立博物館に寄贈され、現在も所蔵されている。<br>
-                <br>
+            <br>
+        </p>
+        <style>
+            .photo-container{
+                display: flex;
+                gap:20px;/*画像間のスペース*/
+            }
+            .photo-container img {
+              border-radius: 15px;
+              width: 30%; /* または具体的な幅 (px, em, % など) */
+              border: 2px solid #ffffff; /* 枠線のスタイル */
+            }
+          </style>
+          <div class="photo-container">
+            <img src="images/katana.jpg" alt="Description of photo">
+            
+            
+          </div>
+          
+        </style>
+        <br>
+        <h3>太刀・銘三条</h3>
+        <p>三日月宗近<br>
+            平安時代に三条宗近作られたとされる。<br>
+            天下五剣の一振りであり、その中でも最も美しいといわれている。<br>
+            東京国立博物館に寄贈され、現在も所蔵されている。<br>
+           
+            <br>
             </p>
-            <div class="photo-container">
-                <img src="images/katana2.jpg" alt="太刀・銘三条">
-            </div>
-        </div>
+        <style>
+            .photo-container img {
+              border-radius: 15px;
+              width: 40%; }
+          </style>
+          <div class="photo-container">
+            <img src="images/katana2.jpg" alt="Description of photo">
+            
+          </div>
+        </style>
     </div>
- 
+   
+</div>
+
+    <head>
+    
+        <style>
+        .spacer {
+            height: 70px; /* 高さを20pxに設定 */
+        }
+    </style>
+
+    <body>
+        <p></p>
+        <div class="spacer"></div> <!-- 空白を追加 -->
+    </body>
+
+
+
+<!-- フッター -->
+<div class="footer">
+    <!-- フッターの内容をここに追加 -->
+</div>
+
+   
+
+
     <!-- フッター -->
-    <div class="footer">© 2024 Your Name</div>
- 
+    <div class="footer">
+    </div>
+
+
     <script>
         // メインビジュアルのスライドショー機能
         const images = [
@@ -289,7 +337,8 @@
             'images/tori-.jpg' // 必要に応じて画像を追加
         ];
         let currentIndex = 0;
- 
+
+
         function changeImage() {
             const imageContainer = document.getElementById('imageContainer');
             imageContainer.classList.remove('active'); // 現在の画像をフェードアウト
@@ -297,24 +346,31 @@
                 imageContainer.style.backgroundImage = `url('${images[currentIndex]}')`;
                 imageContainer.classList.add('active'); // 新しい画像をフェードイン
                 currentIndex = (currentIndex + 1) % images.length;
-            }, 1000);
+            }, 1000); // トランジションの時間と一致させる
         }
- 
+
+
         function toggleDrawer() {
             const drawer = document.getElementById('drawer');
             drawer.classList.toggle('open');
             sessionStorage.setItem('drawerState', drawer.classList.contains('open') ? 'open' : 'closed');
         }
- 
+
+
+        // ページロード時にドローワーメニューの状態を復元
         window.addEventListener('DOMContentLoaded', () => {
             const drawer = document.getElementById('drawer');
             const drawerState = sessionStorage.getItem('drawerState');
             if (drawerState === 'open') {
                 drawer.classList.add('open');
             }
-            setInterval(changeImage, 5000); // 5秒ごとに画像を切り替え
-            changeImage(); // 初期表示の画像を設定
         });
+            // 5秒ごとに画像を切り替え
+            setInterval(changeImage, 5000);
+
+
+            // 初期表示の画像を設定
+            window.addEventListener('DOMContentLoaded', changeImage);
     </script>
 </body>
 </html>
