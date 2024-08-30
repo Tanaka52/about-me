@@ -1,164 +1,199 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap');
-
-
-html {
-    font-family: 'Noto Sans JP', sans-serif;
+@media screen and (min-width: 769px) {
+    /* ウェブサイト用スタイル */
+    .drawer, .menu-btn {
+        display: none; /* ドローワーメニューとメニューボタンを非表示にする */
+    }
+    .navbar ul {
+        display: flex; /* ナビゲーションバー内のリンクを表示する */
+    }
 }
 
 
-body {
-    background-image: url('about-me/images/tori.jpg'); /* 背景画像のURLを指定 */
-    background-size: cover; /* 画像を全体にフィットさせる */
-    background-position: center; /* 画像を中央に配置 */
-    background-repeat: no-repeat; /* 画像を繰り返さない */
-}
-
-
-
-
-
-
-.container {
-    width: 90%;
-    max-width: 1120px;
-    margin: 0 auto;
-}
-
-
-.flex {
+/* メインビジュアル */
+.main-visual {
+    height: 400px;
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    align-items: center; /* アイテムを垂直方向に中央揃え */
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    margin-top: 60px; /* ナビゲーションバーの高さを考慮 */
+    overflow: hidden; /* コンテンツのはみ出しを防ぐ */
 }
-
-
-/* ヘッダー */
-header {
-    padding: 20px 0;
-}
-
-
-.logo {
-    font-size: 24px;
-    font-weight: 700;
-    letter-spacing: -0.04em;
-}
-
-
-.header-menu {
-    list-style-type: none; /* リストの丸を消す */
-    margin: 0; /* リストの余白をリセット */
-    padding: 0; /* リストのパディングをリセット */
-    display: flex; /* Flexboxを使用 */
-    align-items: center; /* アイテムを垂直方向に中央揃え */
-}
-
-
-.header-menu li {
-    display: inline-block; /* リストアイテムを横並びにする */
-    margin-left: 40px;
-}
-
-
-.header-menu li a {
-    transition: color .3s;
-}
-
-
-.header-menu li a:hover {
-    color: rgb(154, 161, 214);
-}
-
-
-.page-title {
-    color: rgb(230, 233, 240);
-    text-align: center; /* テキストを中央揃え */
-    margin-top: 20px; /* 上の余白を追加 */
-    margin-bottom: 20px; /* 下の余白を追加 */
-    line-height: 1; /* 行の高さを1に設定して中央揃え */
-}
-.haikei.image {
-    background-blend-mode: lighten;
-    background-position: center;
-}
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-}
-
-
-.haikei-image {
+.main-visual .image-container {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* 画像のアスペクト比を維持しつつ、全体をカバー */
-    z-index: -1; /* 画像を背景として配置 */
-
-
-        background-blend-mode: lighten;
-        background-position: center;
-}
-.menu-btn.hidden {
-    display: none; /* ドロワーメニューが開いたときにメニューアイコンを隠す */
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
 }
 
 
-.drawer {
-    z-index: 1000; /* ドロワーメニューを前面に表示 */
+@media screen and (max-width: 768px) {
+    /* スマホ用のメインビジュアル画像 */
+    .main-visual .image-container {
+        background-image: url('images/mobile-image.jpg'); /* スマホ版の画像URLを設定 */
+    }
 }
-.menu-btn {
-    z-index: 1100; /* メニューボタンをドロワーメニューより前面に表示 */
+
+
+@media screen and (min-width: 769px) {
+    /* Web用のメインビジュアル画像 */
+    .main-visual .image-container {
+        background-image: url('images/web-image.jpg'); /* Web版の画像URLを設定 */
+    }
 }
 .contact-form {
+    max-width: 380px; /* フォームの幅を小さくする */
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
     z-index: 900; /* お問い合わせフォームをドロワーメニューの下に表示 */
+    text-align: left; /* フォーム全体を左寄せ */
 }
-.menu-btn {
-    cursor: pointer;
-    font-size: 2em;
-    position: absolute;
-    top: 20px;
-    right: 20px;
+
+
+.contact-form button {
+    margin-left: 0; /* ボタンを左寄せ */
+}
+.drawer {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 250px;
+    height: 100%;
+    background-color: rgba(83, 79, 102, 0.8); /* 半透明に設定 */
+    color: rgb(255, 255, 255);
+    transition: right 0.3s ease;
+    padding: 20px;
+    box-sizing: border-box;
     z-index: 1000;
-    color: rgb(255, 255, 255); /* メニューボタンの色を青に変更 */
+    overflow-y: auto;
 }
-/* メニューボタンとドローワーメニューを水平にする*/
-.container {
+/* 情報入力ボックスのスタイル */
+.input-boxes {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    gap: 20px; /* ボックス間の隙間 */
+    margin-bottom: 40px;
 }
-.page-title {
-    flex: 1;
+
+
+.input-container {
+    border: 2px solid #846868;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #f6b1b1;
+    text-align: center;
+}
+
+
+.input-container textarea {
+    width: 100%;
+    height: 8px; /* デフォルトの高さ */
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #fefefe;
+    border-radius: 4px;
+    resize: vertical; /* 縦にのみサイズ変更可能 */
+}
+
+
+/* メディアクエリでのサイズ調整 */
+@media screen and (max-width: 768px) {
+    .input-container {
+        width: 100%;
+    }
+}
+/* メディアクエリでのサイズ調整 */
+@media screen and (max-width: 1200px) {
+    .input-container {
+        width: 100%;
+    }
+}
+/* 全体のスタイル */
+html, body {
     margin: 0;
-    padding: 30px;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    color: #333333;
+    background-color: #f4f4f4;
+    overflow-x: hidden; /* 横スクロールを防ぐ */
 }
-.menu-btn {
-    cursor: pointer;
-    padding: 0px;
+
+/* コンテンツセクション */
+.content {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+    flex-grow: 1; /* コンテンツが少なくてもフッターが下に来るようにする */
 }
-/*画像とテキストを横に並べるためのスタイル*/
-.image-text-container {
+
+/* フッター */
+.footer {
+    background-color: #333333;
+    color: #fff;
+    padding: 2%;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* 画像コンテナのスタイル */
+.image-container {
+    text-align: center;
+    margin: 20px 0;
+}
+/* ナビゲーションバー */
+.navbar {
+    background-color: #282a35;
+    color: #fff;
     display: flex;
+    justify-content: space-between; /* ナビゲーションバーのアイテムを左右に配置 */
     align-items: center;
-    gap: 50px;
-    margin-top: 20px;
+    padding: 28px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
 }
 
-
-.image-margin-left {
-    margin-left: 1; /* これを小さくして、例えば200pxに */
-}
-
-
-.image-text-container img {
-    border-radius: 15px;
-    width: 190px;
-}
-
-
-.image-text-container p {
+.navbar h1 {
     margin: 0;
+    font-size: 1.5em;
+    text-align: right; /* タイトルを右寄せ */
+    flex: 1; /* 中央寄せのリストのスペースを確保 */
 }
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* リスト項目を中央に寄せる */
+    flex: 2; /* タイトルとリストのスペース比を調整 */
+}
+
+.navbar ul li {
+    margin: 0 10px;
+}
+
+.navbar ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+.navbar ul li a:hover {
+    text-decoration: underline;
+}
+
+

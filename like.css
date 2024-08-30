@@ -1,0 +1,207 @@
+/* 全体のスタイル */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #333333;
+    background-color: #f4f4f4;
+    overflow-x: hidden; /* 横スクロールを防ぐ */
+}
+
+/* ナビゲーションバー */
+.navbar {
+    background-color: #282a35;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 28px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar h1 {
+    margin: 0;
+    font-size: 1.5em;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar ul li {
+    margin: 0 10px;
+}
+
+.navbar ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+.navbar ul li a:hover {
+    text-decoration: underline;
+}
+
+/* ドローワーメニューのスタイル（スマホ用） */
+.drawer {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 250px;
+    height: 100%;
+    background-color: rgba(83, 79, 102, 0.8); /* 背景を半透明に設定 */
+    color: rgb(255, 255, 255);
+    transition: right 0.3s ease;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.drawer.open {
+    right: 0;
+}
+
+.drawer .close-btn {
+    cursor: pointer;
+    font-size: 1.5em;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.drawer ul {
+    list-style: none;
+    padding: 0;
+    margin: 60px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.drawer ul li {
+    margin: 10px 0;
+    line-height: 20px;
+}
+
+.drawer ul li a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    display: block;
+}
+
+/* メニューボタンのスタイル（スマホ用） */
+.menu-btn {
+    cursor: pointer;
+    font-size: 2em;
+    position: fixed;
+    top: 1%;
+    right: 20px;
+    z-index: 1000;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* メインビジュアル */
+.main-visual {
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    margin-top: 60px; /* ナビゲーションバーの高さを考慮 */
+    overflow: hidden; /* コンテンツのはみ出しを防ぐ */
+}
+
+.main-visual .image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: -1; /* コンテンツより後ろに配置 */
+    opacity: 0;
+    transition: opacity 1s ease-in-out; /* フェードイン・フェードアウトのトランジション */
+}
+
+.main-visual .image-container.active {
+    opacity: 1;
+}
+
+.main-visual h2 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+/* コンテンツセクション */
+.content {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+    padding-bottom: 80px; /* フッターの高さを考慮して下部に余白を追加 */
+}
+
+.content h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.content .exhibition, .content .contact {
+    margin-bottom: 40px;
+}
+
+/* フッター */
+.footer {
+    background-color: #333333;
+    color: #fff;
+    padding: 7%;
+    text-align: center;
+    position: relative; /* 通常の流れに戻す */
+    clear: both; /* コンテンツのフロートの影響を受けないようにする */
+    width: 100%;
+    margin-top: -30px; /* フッターがコンテンツと重ならないように調整 */
+}
+
+/* 画像コンテナのスタイル */
+.image-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* メディアクエリ */
+@media screen and (max-width: 768px) {
+    /* スマホ用スタイル */
+    .navbar ul {
+        display: none; /* ナビゲーションバー内のリンクを非表示にする */
+    }
+    .menu-btn {
+        display: block; /* メニューボタンを表示する */
+    }
+}
+
+@media screen and (min-width: 769px) {
+    /* ウェブサイト用スタイル */
+    .drawer, .menu-btn {
+        display: none; /* ドローワーメニューとメニューボタンを非表示にする */
+    }
+    .navbar ul {
+        display: flex; /* ナビゲーションバー内のリンクを表示する */
+    }
+}

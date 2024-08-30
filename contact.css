@@ -1,0 +1,22 @@
+/* お問い合わせフォームのスタイル */
+.contact-form {
+    max-width: 380px; /* フォームの幅を小さくする */
+    margin: 40px auto 80px; /* フォームの下にスペースを追加 */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center; /* フォーム内の要素を中央に配置 */
+    position: relative;
+    z-index: 900; /* お問い合わせフォームをドロワーメニューの下に表示 */
+
+}
+
+/* フッター */
+.footer {
+    background-color: #333333;
+    color: #fff;
+    padding: 1.5%;
+    text-align: center;
+    margin-top: 100px; /* フッターの上にスペースを追加 */
+}
